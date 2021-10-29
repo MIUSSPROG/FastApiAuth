@@ -7,13 +7,14 @@ import ormar
 from fastapi import UploadFile, HTTPException
 from starlette.requests import Request
 
-from users.models import User
+from users.models import UserModel
+from users.schemas import User
 from video.models import Video
 from video.schemas import UploadVideo
 
 
 async def save_video(
-        user: User,
+        user: UserModel,
         file: UploadFile,
         title: str,
         description: str,
@@ -28,7 +29,7 @@ async def save_video(
     info = UploadVideo(title=title, description=description)
     # with open(f'{file.filename}', 'wb') as buffer:
     #     shutil.copyfileobj(file.file, buffer)
-    return await Video.objects.create(file=file_name, user=user, **info.dict())
+    return await Video.objects.create(file=file_name, user=user.dict(), **info.dict())
 
 
 async def write_video(file_name: str, file: UploadFile):

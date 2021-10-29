@@ -25,21 +25,26 @@
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
     <loaded-nodes>
-      <connection connection-id="fe697e4b-10a5-4c62-8ea2-fe748e2647ed">
+      <connection connection-id="50b38473-9f39-459e-8743-0ddbc031caa3">
         <schema name="main" object-types="table, view" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="fe697e4b-10a5-4c62-8ea2-fe748e2647ed">
-      <console name="Connection 1" type="STANDARD" schema="main" session="Main" />
+    <connection id="50b38473-9f39-459e-8743-0ddbc031caa3">
+      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[select * from users
+--select * from videos]]></console>
+      <console name="Connection 1" type="STANDARD" schema="main" session="Main"><![CDATA[select * from users]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="fe697e4b-10a5-4c62-8ea2-fe748e2647ed" />
+    <connection id="50b38473-9f39-459e-8743-0ddbc031caa3" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="50b38473-9f39-459e-8743-0ddbc031caa3" dataset="main.users" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -67,9 +72,9 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="fe697e4b-10a5-4c62-8ea2-fe748e2647ed" active="true">
+      <connection id="50b38473-9f39-459e-8743-0ddbc031caa3" active="true">
         <database>
-          <name value="Connection 1" />
+          <name value="Connection" />
           <description value="" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />

@@ -6,8 +6,8 @@ from starlette.requests import Request
 from starlette.responses import HTMLResponse, StreamingResponse
 from starlette.templating import Jinja2Templates
 
-from users.db import UserModel
-from users.models import User
+from users.models import UserModel
+from users.schemas import User
 from users.users import current_active_user
 from video.models import Video
 from video.schemas import GetListVideo
@@ -28,7 +28,7 @@ async def create_video(
 
 
 @video_router.get("/user/{user_pk}", response_model=List[GetListVideo])
-async def get_list_video(user_pk: int):
+async def get_list_video(user_pk: str):
     video_list = await Video.objects.filter(user=user_pk).all()
     return video_list
 

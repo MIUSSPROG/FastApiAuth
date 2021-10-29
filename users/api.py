@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 from fastapi_users_db_ormar import OrmarUserDatabase
 
-from users.db import UserModel
+from users.models import UserModel
 from users.users import fastapi_users, jwt_authentication, current_active_user
-from users.models import UserDB
+from users.schemas import UserDB
 
 user_router = APIRouter()
 

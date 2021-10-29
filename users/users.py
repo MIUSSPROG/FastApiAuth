@@ -5,14 +5,10 @@ from fastapi_users import BaseUserManager, FastAPIUsers
 from fastapi_users.authentication import JWTAuthentication
 from fastapi_users_db_ormar import OrmarUserDatabase
 
-from users.db import UserModel
-from users.models import User, UserCreate, UserUpdate, UserDB
+from users.models import UserModel, get_user_db
+from users.schemas import User, UserCreate, UserUpdate, UserDB
 
 SECRET = "SECRET"
-
-
-def get_user_db():
-    yield OrmarUserDatabase(UserDB, UserModel)
 
 
 class UserManager(BaseUserManager[UserCreate, UserDB]):

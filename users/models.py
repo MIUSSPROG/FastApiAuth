@@ -1,17 +1,19 @@
-from fastapi_users import models
+import databases
+import ormar
+import sqlalchemy
+import fastapi_users.db
+from fastapi_users_db_ormar import OrmarBaseUserModel, OrmarUserDatabase
+
+from db_config import MainMeta
+from users.schemas import UserDB
 
 
-class User(models.BaseUser):
-    pass
+class UserModel(OrmarBaseUserModel):
+    class Meta(MainMeta):
+        tablename = "users"
+
+    username: str = ormar.String(max_length=100, unique=True)
 
 
-class UserCreate(models.BaseUserCreate):
-    pass
-
-
-class UserUpdate(models.BaseUserUpdate):
-    pass
-
-
-class UserDB(User, models.BaseUserDB):
-    pass
+def get_user_db():
+    yield OrmarUserDatabase(UserDB, UserModel)
