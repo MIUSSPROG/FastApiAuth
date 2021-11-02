@@ -13,11 +13,12 @@ from video.models import Video
 from video.schemas import GetListVideo
 from video.services import save_video, open_file
 
-video_router = APIRouter()
+# prefix='/videos', tags=["videos"]
+video_router = APIRouter(tags=["videos"])
 templates = Jinja2Templates(directory="templates")
 
 
-@video_router.post("/")
+@video_router.post("/video/")
 async def create_video(
         title: str = Form(...),
         description: str = Form(...),
